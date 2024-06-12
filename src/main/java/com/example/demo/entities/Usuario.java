@@ -21,28 +21,28 @@ public class Usuario{
 		super();
 	}
 
-	public Integer getUsu_id() {
+	public Integer getUsu_id(){
 		return usu_id;
 	}
 
-	public void setUsu_id(Integer usu_id) {
+	public void setUsu_id(Integer usu_id){
 		this.usu_id = usu_id;
 	}
 
-	public String getUsu_correo() {
+	public String getUsu_correo(){
 		return usu_correo;
 	}
 
-	public void setUsu_correo(String usu_correo) {
-		this.usu_correo = usu_correo;
+	public void setUsu_correo(String usu_correo){
+		this.usu_correo=usu_correo;
 	}
 
-	public String getUsu_contrasenia() {
+	public String getUsu_contrasenia(){
 		return usu_contrasenia;
 	}
 
-	public void setUsu_password(String usu_contrasenia) {
-		this.usu_contrasenia = usu_contrasenia;
+	public void setUsu_contrasenia(String usu_contrasenia){
+		this.usu_contrasenia=usu_contrasenia;
 	}
 
 	@Override

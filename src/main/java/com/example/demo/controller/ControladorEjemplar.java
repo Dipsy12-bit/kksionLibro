@@ -1,5 +1,5 @@
 package com.example.demo.controller;
-//h
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,50 +11,49 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.example.demo.bussiness.ServicioAutor;
-import com.example.demo.entities.Autor;
+import com.example.demo.business.ServicioEjemplar;
+import com.example.demo.entities.Ejemplar;
 import com.example.demo.exceptions.ServicioException;
 
 @Controller
 @RequestMapping(value={"/","/ejemplares"})
-public class ControladorEjemplar {
+public class ControladorEjemplar{
 	
 	@Autowired
-	ServicioAutor servicio;
+	ServicioEjemplar servicio;
 	
 	@GetMapping
-	public String paginaAutores(Model model) throws Exception {
-		List<Autor> autores = servicio.listAutores();
+	public String paginaEjemplares(Model model) throws Exception{
+		List<Ejemplar> ejemplares = servicio.listEjemplares();
 		
-		model.addAttribute("autores", autores);	
-		return "autores";
+		model.addAttribute("ejemplares", ejemplares);	
+		return "ejemplares";
 	}
 	
-	@GetMapping("/{autor_id}")
-	public String paginaAutor(@PathVariable Integer autor_id,Model model) throws Exception {
-		Autor autor = servicio.conseguirAutor(autor_id);
+	@GetMapping("/{ejem_id}")
+	public String paginaEjemplar(@PathVariable Integer ejem_id,Model model) throws Exception{
+		Ejemplar ejemplar = servicio.conseguirEjemplar(ejem_id);
 		
-		model.addAttribute("autor", autor);	
-		return "autor";
+		model.addAttribute("ejemplar", ejemplar);	
+		return "ejemplar";
 	}
 
 	@PostMapping
-	public String grabarAutor(@ModelAttribute Autor autor,Model model) throws Exception {
+	public String grabarEjemplar(@ModelAttribute Ejemplar ejemplar,Model model) throws Exception{
 		
-		autor=servicio.grabarAutor(autor);
+		ejemplar=servicio.grabarEjemplar(ejemplar);
 		
-		model.addAttribute("autor", autor);	
-		return "autor";
+		model.addAttribute("ejemplar", ejemplar);	
+		return "ejemplar";
 	}
 	
-	@GetMapping("/a/{autor_id}")
-	public String eliminarAutor(@PathVariable Integer autor_id,Model model) throws Exception {
+	@GetMapping("/a/{ejem_id}")
+	public String eliminarEjemplar(@PathVariable Integer ejem_id,Model model) throws Exception{
 		
-		servicio.eliminarAutor(autor_id);
+		servicio.eliminarEjemplar(ejem_id);
 		
 		
-		return "redirect:/autores";	
+		return "redirect:/ejemplares";	
 	}
 	@ExceptionHandler({ ServicioException.class, Exception.class })
     public String  handleException(Model model) {

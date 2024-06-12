@@ -17,8 +17,10 @@ public class Ejemplar{
 	private String ejem_titulo;
 	@Column(name="ejem_localizacion")
 	private String ejem_localizacion;
+	@Column(name="estado")
+	private Integer estado;
 	@Column(name="autor_id")
-	private String autor_id;
+	private Integer autor_id;
 	@Column(name="id_gen_ejem")
 	private Integer id_gen_ejem;
 	@Column(name="id_usu")
@@ -59,12 +61,20 @@ public class Ejemplar{
 	public void setEjem_localizacion(String ejem_localizacion) {
 		this.ejem_localizacion = ejem_localizacion;
 	}
+	
+	public Integer getEstado() {
+		return estado;
+	}
 
-	public String getAutor_id() {
+	public void setEstado(Integer estado) {
+		this.estado = estado;
+	}
+
+	public Integer getAutor_id() {
 		return autor_id;
 	}
 
-	public void setAutor_id(String autor_id) {
+	public void setAutor_id(Integer autor_id) {
 		this.autor_id = autor_id;
 	}
 
@@ -87,12 +97,7 @@ public class Ejemplar{
 	@Override
 	public String toString() {
 		return "Ejemplar [ejem_id=" + ejem_id + ", ejem_isbn=" + ejem_isbn + ", ejem_titulo=" + ejem_titulo
-				+ ", ejem_localizacion=" + ejem_localizacion + ", autor_id=" + autor_id + ", id_gen_ejem=" + id_gen_ejem
-				+ ", id_usu=" + id_usu + "]";
+				+ ", ejem_localizacion=" + ejem_localizacion + ", estado=" + estado + ", autor_id=" + autor_id
+				+ ", id_gen_ejem=" + id_gen_ejem + ", id_usu=" + id_usu + "]";
 	}
-	
-	
-
-	
-
 }

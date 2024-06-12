@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.example.demo.bussiness.ServicioAutor;
+
+import com.example.demo.business.ServicioAutor;
 import com.example.demo.entities.Autor;
 import com.example.demo.exceptions.ServicioException;
-
-
 
 @Controller
 @RequestMapping(value={"/","/autores"})
@@ -54,9 +53,9 @@ public class ControladorAutor {
 		
 		servicio.eliminarAutor(autor_id);
 		
-		
 		return "redirect:/autores";	
 	}
+	
 	@ExceptionHandler({ ServicioException.class, Exception.class })
     public String  handleException(Model model) {
 		

@@ -1,11 +1,12 @@
-package com.example.demo.bussiness;
+package com.example.demo.business;
 
 import java.util.List;
 
 import com.example.demo.entities.Autor;
+
 import com.example.demo.exceptions.ServicioException;
 
-public interface ServicioAutor {
+public interface ServicioAutor{
 	
 	List<Autor> listAutores() throws ServicioException;
 
@@ -14,4 +15,5 @@ public interface ServicioAutor {
 	Autor grabarAutor(Autor autor) throws ServicioException;
 
 	void eliminarAutor(Integer autor_id) throws ServicioException;
+
 }
